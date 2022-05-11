@@ -1,0 +1,49 @@
+@extends('master::layouts.master') 
+
+@section('css')  
+
+@stop
+
+@section('content') 
+ 
+ 
+<!-- Basic datatable -->
+ 
+
+
+<div class="panel panel-flat"> 
+    <table class="table datatable-basic" id="datatable" data-url='{{route('gate_pass_list_m')}}' data-breakage='{{$breakage->id}}'>
+        <thead>
+            <tr>  
+                <th>PID </th>  
+                <th>Name </th>  
+                <th>Email</th>
+                <th>Contact Number</th>
+                <th>Status</th>
+                <th>Is Breakage</th>
+                <th class="text-center">Actions</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+                                                    
+<!-- Basic datatable -->                          
+@stop
+
+@section('js')  
+<style>
+    .btn-light {
+    color: #000 !important;
+    margin-right: 10px !important;
+}
+</style>
+
+<script>
+    var editBtn     = <?php echo (isset($editBtn) && $editBtn) ? $editBtn : 'false' ?>;
+    var deleteBtn   = <?php echo (isset($deleteBtn) && $deleteBtn) ? $deleteBtn : 'false' ?>;
+</script>
+  <script src="{{asset('public/global_assets/js/plugins/notifications/noty.min.js')}}"></script>
+  <script src="{{asset('public//global_assets/js/plugins/tables/datatables/datatables.min.js')}}"></script>
+  <script src="{{asset('Modules/Master/Resources/assets/js/gate-pass/gate-pass-m.js')}}"></script>    
+@stop
